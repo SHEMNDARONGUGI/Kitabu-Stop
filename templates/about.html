@@ -1,0 +1,85 @@
+{% extends 'test.html' %}
+{% load static %}
+
+
+{% block body %}
+
+<div class="section about-us" >
+    <div class="container" >
+      <div class="row" >
+        <div class="col-lg-6 offset-lg-1" >
+          <h4 style="color: #fff; text-align: center;">FAQS</h4>
+          <div class="accordion" id="accordionExample" >
+            
+            <div class="accordion-item" >
+              
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color: #0C105A;">
+                  Why Kitabu Stop?
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body" style="color: black;">
+                  Kitabu may have paused some services for updates or improvements. We're working hard to enhance your experience and ensure everything runs smoothly. If you need assistance, please contact us at <a href="{%url 'contact'%}">link</a>. Thank you for your patience!
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color: #0C105A;">
+                  How do we work together?
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body" style="color: black;">
+                  We work by offering you free educational resources and a curated selection of books in our shop. You can access our resources anytime, and purchase books directly from our store. Whether you're looking to learn or expand your collection, we’re here to support you. If you have any questions, feel free to reach out to us at <a href="{%url 'contact'%}">link</a>.
+
+
+
+
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color: #0C105A;">
+                  Why Kitabu Stop is the best?
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body" style="color: black;">
+                  Kitabu Stop offers the best because we provide a unique blend of free educational resources and a carefully curated selection of books to support your learning journey. Our user-friendly platform ensures easy access to valuable content, making education more accessible and enjoyable. We're dedicated to helping you grow, learn, and succeed, all in one place!
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style="color: #0C105A;">
+                  How to support Us?
+                </button>
+              </h2>
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                <div class="accordion-body" style="color: black;">
+                  You can support us by sharing our resources with others or simply engaging with our content. If you'd like to contribute further, consider purchasing books from our shop, as every purchase helps us continue offering free educational resources. Your support means the world to us!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5 align-self-center">
+          <div class="section-heading">
+            <h6 style="color: #0C105A; padding-top: 20px;">About Us</h6>
+            <p style="color: black;">At Kitabu Stop, we are passionate about making education accessible to everyone. Our platform offers a vast collection of free educational resources designed to help learners of all ages expand their knowledge and achieve their goals. In addition, our curated bookshop provides a selection of carefully chosen books to further enhance your learning experience.
+
+              We believe that education should be available to everyone, regardless of background or budget. That’s why we are committed to offering both free content and affordable books, ensuring that everyone has the opportunity to learn and grow. Whether you're exploring new subjects or deepening your expertise, we’re here to support your journey with high-quality materials and tools.
+              
+              Thank you for choosing Kitabu Stop as your trusted resource for education and learning.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+{% endblock  %}
+    

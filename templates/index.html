@@ -1,0 +1,60 @@
+{% extends 'test.html' %}
+{%load static%}
+
+
+{% block body %}
+
+<div style="background-color: #fff; margin-top: 50px; margin-left: 50px; margin-right: 50px; border-radius: 5px; padding-top: 75px; text-align: center; height: 30vh;">
+  <h4 style="color: #0C105A;">Welcome to Kitabu Stop</h4><br><br>
+ <p style="color: black;"><strong>"Where Innovation and Education Converge to Shape the Future of Learning and Discovery"</strong></p>
+  
+</div>
+
+<div class="services section" id="services">
+ 
+  <h3 style="color: #fff; margin-left: 50px; margin-bottom: 50px;">Our Core Values</h3>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6" >
+        <div class="service-item">
+          <div class="icon" style="border: 2px solid #fff;">
+            <img src="{% static 'assets/images/service-01.png' %}" alt="online degrees">
+          </div>
+          <div class="main-content" style="background-color: #fff;">
+            <h6 style="color: #0C105A;">1. Empowering Lifelong Learning</h6><br>
+            <p style="color: black;">We support learners at every stage. Our free resources and curated books provide the tools, knowledge, and inspiration to help you grow and achieve your personal and professional goals.</p><br>
+            
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-5">
+        <div class="service-item">
+          <div class="icon" style="border: 2px solid #fff;">
+            <img src="{% static 'assets/images/service-02.png' %}" alt="short courses">
+          </div>
+          <div class="main-content" style="background-color: #fff;">
+            <h6 style="color: #0C105A;">2. Innovation in Education</h6><br>
+            <p style="color: black;">We focus on providing high-quality, relevant resources and a thoughtfully selected bookshop. Whether you’re exploring free learning materials or purchasing insightful books, we aim to fuel your curiosity and broaden your understanding.</p>
+           
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="service-item">
+          <div class="icon" style="border: 2px solid #fff;">
+            <img src="{% static 'assets/images/service-03.png' %}" alt="web experts">
+          </div>
+          <div class="main-content" style="background-color: #fff;">
+            <h6 style="color: #0C105A;">3. Accessibility for All</h6> <br>
+            <p style="color: black;">We believe everyone deserves access to quality education. Our extensive library of free resources, along with affordable books in our shop, ensures that learning is accessible to everyone, no matter their background or budget.</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+{% endblock  %}
+  

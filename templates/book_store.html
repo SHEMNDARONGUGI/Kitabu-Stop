@@ -1,0 +1,62 @@
+{% extends 'test.html' %}
+{% load static %}
+
+{% block body %}
+<!-- Heading Section -->
+<div class="section-heading text-center">
+    <h2 style="color: #fff;">Digital Books for Sale</h2>
+</div>
+
+<!-- Container for the product grid -->
+<div class="container">
+    <div class="row event_box">
+        {% for product in products %}
+        {% if product.is_sale %}
+
+        <!-- Product Item (Each product in a column) -->
+        <div class="col-lg-4 col-md-6 mb-30">
+          <div class="events_item">
+              <div class="thumb">
+                  <a href="#"><img src="{{ product.image.url }}" alt="" class="product-image"></a>
+                  <span class="price1" >
+                      <h6 style="color: #fff;"><strike>sh {{ product.price }} </strike>&nbsp; sh {{ product.sale_price }} \=</h6>
+                  </span>
+              </div>
+              <div class="down-content">
+                  <span class="author">{{ product.author }}</span>
+                  <h6 style="color: #0C105A;">{{ product.name }}</h6>
+                  <a href="{%url 'product' product.id %}">
+                    <button class="btn btn-primary">
+                        <i class="fas fa-shopping-cart"></i>View Product
+                    </button>
+                   </a>
+              </div>
+          </div>
+      </div>
+
+        {% else %}
+        <!-- Product Item (Each product in a column) -->
+        <div class="col-lg-4 col-md-6 mb-30">
+            <div class="events_item">
+                <div class="thumb">
+                    <a href="{%url 'product' product.id %}"><img src="{{ product.image.url }}" alt="" class="product-image"></a>
+                    <span class="price1" >
+                        <h6 style="color: #fff;">sh {{product.price}}</h6>
+                    </span>
+                </div>
+                <div class="down-content">
+                    <span class="author">{{ product.author }}</span>
+                    <h6 style="color: #0C105A;">{{ product.name }}</h6>
+                   <a href="{%url 'product' product.id %}">
+                    <button class="btn btn-primary">
+                        <i class="fas fa-shopping-cart"></i>View Product
+                    </button>
+                   </a>
+                </div>
+            </div>
+        </div>
+        {%endif%}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

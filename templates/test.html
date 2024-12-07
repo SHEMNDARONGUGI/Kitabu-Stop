@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>Kitabu Stop</title>
+    {% load static %}
+
+    <!-- Bootstrap core CSS -->
+    <link href="{%static 'assets/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-scholar.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+<!--
+
+
+
+-->
+<style>
+
+.equal-size {
+    width: 100%;
+    height: 200px; /* Set a specific height */
+    object-fit: cover; /* Ensures the image is cropped to fill the set dimensions */
+}
+
+  
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: #0C105A; /* Set the navbar background color */
+    padding: 10px 20px; /* Add some padding */
+}
+
+/* Navbar brand (logo) */
+.navbar-brand {
+    color: #f8f9fa; /* Light color for the brand text */
+    font-size: 24px; /* Set the font size for the logo */
+    font-weight: bold; /* Make the text bold */
+    text-decoration: none; /* Remove underline */
+}
+
+.navbar-brand:hover {
+    color: #f8f9fa; /* Keep the color on hover */
+}
+
+/* Navbar links */
+.navbar-nav {
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-item {
+    margin-left: 20px; /* Space out the items */
+}
+
+.nav-link {
+    color: #f8f9fa; /* Set the text color */
+    font-size: 16px; /* Set font size */
+    text-decoration: none; /* Remove underline */
+    padding: 5px 10px; /* Padding for clickable area */
+}
+
+.nav-link:hover {
+    color: #ffc107; /* Change color on hover */
+}
+
+/* Toggle button for smaller screens */
+.navbar-toggler {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    font-size: 24px;
+}
+
+.navbar-toggler-icon {
+    background-color: #f8f9fa; /* Set icon color */
+}
+
+/* Align navbar items to the right */
+.ml-auto {
+    margin-left: auto;
+}
+
+/* Mobile navbar adjustment */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+        width: 100%;
+    }
+
+    .nav-item {
+        margin: 10px 0; /* Stack the navbar items */
+    }
+
+    .navbar-collapse {
+        background-color: #0C105A; /* Ensure the background color is consistent */
+    }
+}
+
+/* Footer styling */
+.footer {
+    background-color: #0C105A;
+    color: #f8f9fa;
+    padding: 10px 20px; 
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    border-radius: 0; /* Ensure no curves or rounded corners */
+    
+}
+
+.footer-content p {
+    margin-bottom: 2px; /* Adjust the margin to reduce space between lines */
+    font-size: 14px; /* Optional: Reduce font size for a thinner footer */
+}
+
+
+
+
+        /* Styling the social buttons */
+        .social-btn {
+            color: #0C105A;
+            font-size: 1.5rem;
+            border: 1px solid #0C105A;
+            border-radius: 50%;
+            padding: 10px;
+            margin: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .social-btn:hover {
+            background-color: #0C105A;
+            color: #fff;
+        }
+
+
+        /* Submit button */
+        .btn-primary {
+            background-color: #0C105A;
+            border: 2px solid #fff;
+            color: #fff;
+            font-size: 1rem;
+            padding: 12px 20px;
+            width: 100%;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+
+        }
+
+        .btn-primary:hover {
+            background-color: #ffc107;
+            color: black;
+        } */
+
+        /* Responsive Design */
+        @media (max-width: 576px) {
+            .registration-form {
+                padding: 15px;
+            }
+        }
+
+        /*working css*/
+        .intro {
+    background-color: #0C105A;
+    color: #fff;
+    padding: 40px;
+    text-align: center;
+}
+
+.intro h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.intro p {
+    font-size: 18px;
+}
+
+/* Step Section */
+.steps {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px 0;
+}
+
+.step {
+    background-color: #f4f4f4;
+    width: 30%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.step-number {
+    background-color: #0C105A;
+    color: #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.step-description h2 {
+    font-size: 24px;
+    color: #0C105A;
+    margin-bottom: 10px;
+}
+
+.step-description p {
+    font-size: 16px;
+}
+
+/* Ensure the .thumb container has relative positioning to position the price absolutely */
+.thumb {
+    position: relative; /* Position for the price */
+}
+
+/* Price style */
+.price1 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #0C105A;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Uniform image size */
+.product-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+
+
+
+
+</style>
+  </head>
+
+<body style="background-color: #0C105A;">
+
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="{% url 'index' %}">Kitabu Stop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About Us!</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'working' %}">How it Works</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'shop' %}">Book Shop</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'resources' %}">Free Resources</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                </li>
+              
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                </li>
+              
+               
+                </ul>
+        </div>
+    </nav>
+
+      
+      
+      
+      {% block body %}
+        
+      {% endblock  %}
+        
+      <!-- Footer -->
+<footer class="footer" >
+    <div>
+        <p style="color: #fff;">&copy; 2024 Kitabu Stop. All rights reserved.</p>
+       
+    </div>
+
+
+</footer>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/js/isotope.min.js' %}"></script>
+  <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+  <script src="{% static 'assets/js/counter.js' %}"></script>
+  <script src="{% static 'assets/js/custom.js' %}"></script>
+
+  </body>
+</html>

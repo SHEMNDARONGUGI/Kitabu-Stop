@@ -1,0 +1,78 @@
+{% extends 'test.html' %}
+{% load static %}
+
+
+{% block body %}
+
+<div class="contact-us section" id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6  align-self-center">
+          <div class="section-heading">
+            <h6>Contact Us</h6>
+            <h2>Feel free to contact us anytime</h2>
+            <p>Thank you for choosing our templates. We provide you best CSS templates at absolutely 100% free of charge. You may support us by sharing our website to your friends.</p><br><br>
+            <a href="https://wa.link/7bun81">
+              <img src="{% static 'assets/images/whatsapp.png' %}" alt="" style="width: 10%; height: 50px;">
+              Whatsapp Us
+            </a>
+            <br><br>
+            <p>Alternatively, you can reach us at: <strong><a href="tel:+254768657000">+254768657000</a></strong></p>
+            
+
+            
+          </div>
+        </div>
+        <div class="col-lg-6"  >
+          <div class="contact-us-content" style="background-color: #0C105A; border: 2px solid #fff;">
+            <form id="contact-form" action="{%url 'confirmation'%}" method='POST' >
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-lg-12">
+                  <fieldset>
+                    <input type="name" name="name" id="name" placeholder="Your Name..." autocomplete="on" required>
+                  </fieldset>
+                </div>
+                <div class="col-lg-12">
+                  <fieldset>
+                    <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your E-mail..." required="">
+                  </fieldset>
+                </div>
+                <div class="col-lg-12">
+                  <fieldset>
+                    <textarea name="message" id="message" placeholder="Your Message"></textarea>
+                  </fieldset>
+                </div>
+                <div class="col-lg-12">
+                  <fieldset>
+                    <!-- <button type="submit" id="form-submit" class="btn btn-primary btn-block mb-3 ">Send Message Now</button> -->
+
+                    <button type="submit" class="btn btn-primary btn-block mb-3" style="
+                    background-color: #0C105A;
+                    border: 2px solid #fff;
+                    color: #fff;
+                    font-size: 1rem;
+                    padding: 12px 20px;
+                    width: 100%;
+                    border-radius: 5px;
+                    transition: background-color 0.3s, color 0.3s;
+                    ">
+                    Send Message
+                    </button>
+
+
+                  </fieldset>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top: 100px; margin-left: 20px; margin-right: 20px; border-radius: 5px; border: 2px solid #fff;">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.846218196047!2d36.79814977647285!3d-1.2648115987231476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1741d28f6777%3A0xc89ebb559b0da912!2seMobilis%20Technology%20Training%20Institute!5e0!3m2!1sen!2ske!4v1733533678277!5m2!1sen!2ske" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+    
+{% endblock  %}
+    

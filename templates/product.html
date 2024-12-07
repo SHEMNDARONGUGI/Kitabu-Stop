@@ -1,0 +1,27 @@
+{% extends 'test.html' %}
+{% load static %}
+
+{% block body %}
+
+<div class="card " style="margin-bottom: 300px; margin-left: 20px;margin-right: 20px; background-color: #fff;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{ product.image.url}}" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body mt-5">
+        <center>
+            <h5 class="card-title">{{ product.name }}</h5><br>
+            <p class="card-text">{{product.description}}</p><br>
+            <strong>sh  {{ product.price }} \=</strong><br><br>
+            <a href="{% url 'shop'%}">
+                <button class="btn btn-primary" style="width: 50%; ">Back</button>
+            </a>
+        </center>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+{% endblock  %}
+    

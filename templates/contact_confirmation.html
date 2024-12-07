@@ -1,0 +1,35 @@
+{% extends 'test.html' %}
+{% load static %}
+
+
+{% block body %}
+
+<div class="contact-us section" id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6  align-self-center">
+          <div class="section-heading">
+            <h6>Contact Us</h6>
+            <h2>Feel free to contact us anytime</h2>
+            <p>Thank you for choosing our templates. We provide you best CSS templates at absolutely 100% free of charge. You may support us by sharing our website to your friends.</p><br><br>
+            <a href="https://wa.link/7bun81"><img src="https://web.whatsapp.com/favicon-64x64.ico" alt="" style="width: 10%; height: 50px;"><br>Whatsapp</a>
+
+            
+          </div>
+        </div>
+        <div class="col-lg-6"  >
+          <div class="contact-us-content" style="background-color: #0C105A; border: 2px solid #fff;">
+            <h3 style="color: #fff;">Message Sent</h3>
+            <p style="color: #fff;">We will contact you via your email <br>Thank you</p>
+            <a href="{% url 'shop' %}">
+              <button class="btn-primary mb-5 mt-5">Shop</button>
+            </a>
+            <a href="{% url 'contact' %}"><button class="btn-primary">Go back to contact</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+{% endblock  %}
+    
