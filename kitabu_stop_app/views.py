@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from kitabu_stop_app.models import user,Product,Contact
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.db.models import Q
 
 def index(request):
     if request.method=='POST': 
@@ -80,6 +81,28 @@ def working(request):
 def product(request, pk):
     product = Product.objects.get(id=pk)
     return render(request, 'product.html', {'product': product})
+
+def search(request):
+    if request.method == "POST":
+        searched_term = request.POST.get('searched')  # Get the search term from the form
+        
+        if not searched_term:  # If the search term is empty
+            messages.error(request, "Please enter a search term.")
+            return render(request, "search.html")
+        
+        # Query the Products database model for products matching the search term (case-insensitive)
+        products = Product.objects.filter(Q(name__icontains=searched_term) | Q(description__icontains=searched_term))
+        
+        # If no products match the search, show a message
+        if not products:
+            messages.error(request, "No products found matching your search.")
+        
+        return render(request, "search.html", {'searched': products, 'term': searched_term})
+
+    # For GET request, render the search page without results
+    return render(request, "search.html")
+
+        
     
 
 

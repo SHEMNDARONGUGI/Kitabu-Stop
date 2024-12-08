@@ -1,0 +1,94 @@
+{% extends 'test.html' %}
+{%load static%}
+
+
+{% block body %}
+<div style="text-align: center;">
+    <h1 style="color: #fff;">Search Products</h1>
+    <p style="color:#fff">Find what you are looking for...</p>
+
+</div>
+
+  <div class="container">
+    <div class="card">
+        <div class="card-header">
+          Search Products
+        </div>
+        <div class="card-body">
+            <form class="d-flex ms-5" role="search" style="width: 50%;" method="POST" action="{% url 'search' %}">
+                {% csrf_token %}
+                <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" style="width: 75%" name="searched"><br>
+                <button class="btn btn-primary" type="submit" style="width: 50%;">Search</button><br>
+              </form>
+            
+        </div>
+        <br>
+
+<div class="row event_box">
+{% if searched %}
+
+
+{% for product in searched %}
+{% if product.is_sale %}
+
+<!-- Product Item (Each product in a column) -->
+<div class="col-lg-4 col-md-6 mb-30">
+  <div class="events_item">
+      <div class="thumb">
+          <a href="#"><img src="{{ product.image.url }}" alt="" class="product-image"></a>
+          <span class="price1" >
+              <h6 style="color: #fff;"><strike>sh {{ product.price }} </strike>&nbsp; sh {{ product.sale_price }} \=</h6>
+          </span>
+      </div>
+      <div class="down-content">
+          <span class="author">{{ product.author }}</span>
+          <h6 style="color: #0C105A;">{{ product.name }}</h6>
+          <a href="{%url 'product' product.id %}">
+            <button class="btn btn-primary">
+                <i class="fas fa-shopping-cart"></i>View Product
+            </button>
+           </a>
+      </div>
+  </div>
+</div>
+
+{% else %}
+<!-- Product Item (Each product in a column) -->
+<div class="col-lg-4 col-md-6 mb-30">
+    <div class="events_item">
+        <div class="thumb">
+            <a href="{%url 'product' product.id %}"><img src="{{ product.image.url }}" alt="" class="product-image"></a>
+            <span class="price1" >
+                <h6 style="color: #fff;">sh {{product.price}}</h6>
+            </span>
+        </div>
+        <div class="down-content">
+            <span class="author">{{ product.author }}</span>
+            <h6 style="color: #0C105A;">{{ product.name }}</h6>
+           <a href="{%url 'product' product.id %}">
+            <button class="btn btn-primary">
+                <i class="fas fa-shopping-cart"></i>View Product
+            </button>
+           </a>
+        </div>
+    </div>
+</div>
+{%endif%}
+    
+{% endfor %}
+</div>  
+
+<br><br>
+
+{% endif%}
+      </div>
+  </div>
+<br><br>
+{% if searched %}
+
+You searched for ... {{ searched }}
+
+{% endif%}
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock  %}
+    

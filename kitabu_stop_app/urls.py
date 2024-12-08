@@ -15,5 +15,6 @@ urlpatterns = [
     path('working/', views.working, name='working'),
     path('confirmation', views.confirmation, name='confirmation'),
     path('product/<int:pk>', views.product, name='product'),
+    path('search/', views.search, name='search'),
     
 ]
