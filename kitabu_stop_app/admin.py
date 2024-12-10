@@ -1,12 +1,14 @@
 from django.contrib import admin
-from kitabu_stop_app.models import user, Category, Product, Contact
+from kitabu_stop_app.models import User, Category, Product, Contact, Resource
 # from django.contrib.auth.models import Group, User
 
 # Register your models here.
-admin.site.register(user)
+admin.site.register(User)
 admin.site.register(Category)
 admin.site.register(Product)
 admin.site.register(Contact)
+admin.site.register(Resource)
+# admin.site.register(payment_details)
 
 
 

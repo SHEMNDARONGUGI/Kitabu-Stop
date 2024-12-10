@@ -2,18 +2,21 @@ import json
 from urllib.request import HTTPBasicAuthHandler
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from kitabu_stop_app.models import user,Product,Contact
-from django.contrib.auth import authenticate, login, logout
+from kitabu_stop_app.models import User,Product,Contact, Resource
+from django.contrib.auth import logout
 from django.contrib import messages
 from django.db.models import Q
 from kitabu_stop_app.credentials import MpesaAccessToken, LipanaMpesaPpassword
 import requests
 from requests.auth import HTTPBasicAuth
+from decimal import Decimal
+from django.shortcuts import get_object_or_404
+from .forms import ResourceForm
 
 
 def index(request):
     if request.method=='POST': 
-        if user.objects.filter(
+        if User.objects.filter(
             username = request.POST['username'],
             password = request.POST['password'],
         ).exists():
@@ -61,21 +64,20 @@ def shop(request):
     products = Product.objects.all()
     return render(request, 'book_store.html', {'products': products})
 
-def resources(request):
-    return render(request, 'resources.html')
-
 def about(request):
     return render(request, 'about.html')
 
 def register(request):
     if request.method=='POST':
-        members= user(
+        members= User(
             name = request.POST['name'],
             username = request.POST['username'],
+            phone = request.POST['phone'],
             email = request.POST['email'],
             password = request.POST['password']
         )
         members.save()
+        print("success")
         return redirect('/login')
     
     else:
@@ -123,10 +125,57 @@ def token(request):
 
     return render(request, 'token.html', {"token":validated_mpesa_access_token})
 
+
 def pay(request):
-   return render(request, 'pay.html')
+    return render(request, 'pay.html')
+    # if request.method == 'POST':
+    #     selected_product = get_object_or_404(Product, id=request.POST['selected_product'])
+        
+    #     details = payment_details(
+    #         user=request.user, 
+    #         phone=request.POST['phone'],
+    #         selected_product=selected_product,
+    #         amount=Decimal(request.POST['amount']),
+    #     )
+    #     try:
+            
+    #         details.save()
+        
+    #     except Exception as e:
+    #         print(f"Error saving payment: {e}")
+
+    #     return redirect('payment_success')
+
+    # else:
+    #     products = Product.objects.all()
+    #     return render(request, 'pay.html', {'products': products})
 
 
+# def pay(request):
+#     if request.method == 'POST':
+#         # Save payment details to the database
+#         details = payment_details(
+#             user = request.user,
+#             phone = request.POST['phone'],
+#             selected_product = Product.objects.get(id=request.POST['selected_product']),
+#             amount = request.POST['amount'],
+            
+    
+#         )
+#         details.save()
+#         print(request.POST)
+        
+        
+
+#         # Redirect to a success page (use a named URL or a view function here)
+#         return redirect('payment_success')  # This will redirect to a URL defined with 'payment_success'
+
+#     else:
+#         # Fetch products from the database to display in the dropdown
+#         products = Product.objects.all()
+#         print("fail")
+#         # Render the 'pay.html' page, passing the products context
+#         return render(request, 'pay.html', {'products': products})
 
 def stk(request):
     if request.method =="POST":
@@ -145,11 +194,38 @@ def stk(request):
             "PartyB": LipanaMpesaPpassword.Business_short_code,
             "PhoneNumber": phone,
             "CallBackURL": "https://sandbox.safaricom.co.ke/mpesa/",
-            "AccountReference": "eMobilis",
-            "TransactionDesc": "Web Development Charges"
+            "AccountReference": "ShemTechnologies",
+            "TransactionDesc": "Service Charges"
         }
         response = requests.post(api_url, json=request, headers=headers)
-        return HttpResponse("Success")
+        return redirect('payment')
+    
+def payment(request):
+        return render(request, 'payment_success.html')
+    
+    
+def resources(request):
+    resources = Resource.objects.all()
+    return render(request, 'resources.html', {'resources': resources})
+
+    
+    
+def upload_resources(request):
+    if request.method == 'POST':
+        form = ResourceForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('resources')  # Redirect to resources after upload
+    else:
+        form = ResourceForm()
+
+    return render(request, 'upload_resources.html', {'form': form})
+
+    
+
+def edit(request, id):
+    resources = Resource.objects.get(id=id)
+    return render(request, 'edit.html', {'x': resources})
 
         
     

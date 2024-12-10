@@ -1,7 +1,7 @@
 from django.db import models
 import datetime
 
-class user(models.Model):
+class User(models.Model):
     name=models.CharField(max_length=50)
     username=models.CharField(max_length=20)
     phone = models.CharField(max_length=13, default='')
@@ -37,28 +37,38 @@ class Product(models.Model):
         return self.name  
     
     
-#customer orders
-# class Order(models.Model):
-#     #select the product
-#     product =models.ForeignKey(Product, on_delete=models.CASCADE)
-#     #who is the customer
-#     user = models.ForeignKey(user, on_delete=models.CASCADE)
-#     quantity = models.IntegerField(default=1)
-#     address = models.CharField(max_length=100, default='', blank=True)
-#     phone = models.CharField(max_length=13, default='', blank=True)
-#     date = models.DateField(default=datetime.datetime.today)
-#     status = models.BooleanField(default=False)
-    
-#     def __str__(self):
-#         return self.product.name
-    
 class Contact(models.Model):
-    name =  name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
     email = models.EmailField()
     message = models.CharField(max_length=500)
     
     def __str__(self):
         return self.name
+    
+# class payment_details(models.Model):
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)  # Make sure user is a ForeignKey
+#     phone = models.CharField(max_length=13, default='')
+#     selected_product = models.ForeignKey(Product, on_delete=models.CASCADE)  # Change this to a ForeignKey
+#     amount = models.DecimalField(default=0, decimal_places=2, max_digits=6)
+    
+#     def __str__(self):
+#         return self.user.name
+
+#     class Meta:
+#         verbose_name_plural = 'payment_details' 
+        
+class Resource(models.Model):
+    title = models.CharField(max_length=100)
+    document = models.FileField(null=False, blank=False, upload_to='documentation/')
+
+    def __str__(self):
+        return self.title
+    
+    
+    
+    
+    
+    
     
     
     
