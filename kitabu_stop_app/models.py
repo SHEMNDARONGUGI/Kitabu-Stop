@@ -38,19 +38,19 @@ class Product(models.Model):
     
     
 #customer orders
-class Order(models.Model):
-    #select the product
-    product =models.ForeignKey(Product, on_delete=models.CASCADE)
-    #who is the customer
-    user = models.ForeignKey(user, on_delete=models.CASCADE)
-    quantity = models.IntegerField(default=1)
-    address = models.CharField(max_length=100, default='', blank=True)
-    phone = models.CharField(max_length=13, default='', blank=True)
-    date = models.DateField(default=datetime.datetime.today)
-    status = models.BooleanField(default=False)
+# class Order(models.Model):
+#     #select the product
+#     product =models.ForeignKey(Product, on_delete=models.CASCADE)
+#     #who is the customer
+#     user = models.ForeignKey(user, on_delete=models.CASCADE)
+#     quantity = models.IntegerField(default=1)
+#     address = models.CharField(max_length=100, default='', blank=True)
+#     phone = models.CharField(max_length=13, default='', blank=True)
+#     date = models.DateField(default=datetime.datetime.today)
+#     status = models.BooleanField(default=False)
     
-    def __str__(self):
-        return self.product
+#     def __str__(self):
+#         return self.product.name
     
 class Contact(models.Model):
     name =  name = models.CharField(max_length=100)

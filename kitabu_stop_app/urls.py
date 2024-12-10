@@ -16,5 +16,8 @@ urlpatterns = [
     path('confirmation', views.confirmation, name='confirmation'),
     path('product/<int:pk>', views.product, name='product'),
     path('search/', views.search, name='search'),
+    path('pay/', views.pay, name='pay'),
+    path('stk/', views.stk, name='stk'),
+    path('token/', views.token, name='token'),
     
 ]

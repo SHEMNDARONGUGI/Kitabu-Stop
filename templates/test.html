@@ -257,10 +257,6 @@
     border-radius: 8px;
 }
 
-
-
-
-
 </style>
   </head>
 
@@ -304,6 +300,10 @@
               
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                </li>
+
+                <li>
+                    {{user.name}}
                 </li>
               
                

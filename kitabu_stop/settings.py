@@ -26,7 +26,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'kitabu_stop_app'
+    'kitabu_stop_app',
+    'django_daraja',
 ]
 
 MIDDLEWARE = [
