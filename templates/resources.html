@@ -4,7 +4,7 @@
 {% block body %}
 
 <a href="{% url 'upload' %}" style="display: flex; justify-content: flex-end;">
-  <button class="btn btn-primary me-5"           style=" color: #fff; font-weight: bold; width: 20%; background-color: #0C105A;;" 
+  <button class="btn btn-primary me-5" style=" color: #fff; font-weight: bold; width: 20%; background-color: #0C105A;;" 
   onmouseover="this.style.backgroundColor='#ffc107'; this.style.color='black';" 
   onmouseout="this.style.backgroundColor='#0C105A'; this.style.color='#fff';">+Upload Resources</button>
 </a>
@@ -12,25 +12,25 @@
 <ul class="list-unstyled mt-5 ms-5 me-5" style="display: flex; flex-wrap: wrap; gap: 30px;">
   {% for resource in resources %}
       <li class="mb-3" style="flex: 1 0 30%; max-width: 30%; margin-bottom: 30px;">
-          <!-- Resource Box -->
           <div class="border p-3 rounded shadow-sm" style="background-color: #f9f9f9; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;">
-              <!-- Resource Title -->
-              <strong class="d-block mb-3" style="font-size: 0.8rem; color: #333;">{{ resource.title }}</strong>
+              <strong class="d-block mb-3" style="font-size: 0.8rem; color: #333;">Title: {{ resource.title }}</strong>
               
-              <!-- Download Link -->
               {% if resource.document.url %}
-                  <a href="{{ resource.document.url }}" class="btn btn-primary btn-sm" >
-                      Download Document
+                  <a href="{{ resource.document.url }}" class="btn btn-primary btn-sm">
+                    <img src="{%static 'assets/images/download.png'%}" alt="" style="height: 40px; width: 35px;">
+                      Download
                   </a>
               {% endif %}
 
-              <a href="{% url 'edit' resource.id %}" class="btn btn-primary btn-sm" >
-                Edit
-            </a>
+              <div class="mt-3">
+                  <a href="{% url 'edit' resource.id %}" class="btn btn-primary btn-sm me-5" style="width: 70%;">Edit</a>
+                  <a href="{% url 'delete_resource' resource.id %}" style="width: 25%; text-align: center;">
+                      <img src="{% static 'assets/images/delete.png' %}" alt="Delete" style="height: 40px; width: 35px;">
+                  </a>
+              </div>
           </div>
       </li>
   {% endfor %}
 </ul>
-
 
 {% endblock %}

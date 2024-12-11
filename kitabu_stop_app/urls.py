@@ -22,6 +22,7 @@ urlpatterns = [
     path('payment/' ,views.payment, name='payment'),
     path('upload_resources/' ,views.upload_resources, name='upload'),
     path('edit/<int:id>',views.edit, name='edit'),
-    
+    path('delete_resource/<int:id>/', views.delete_resource, name='delete_resource'),
+
     
 ]

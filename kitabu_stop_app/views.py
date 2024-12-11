@@ -1,7 +1,7 @@
 import json
 from urllib.request import HTTPBasicAuthHandler
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from kitabu_stop_app.models import User,Product,Contact, Resource
 from django.contrib.auth import logout
 from django.contrib import messages
@@ -10,7 +10,6 @@ from kitabu_stop_app.credentials import MpesaAccessToken, LipanaMpesaPpassword
 import requests
 from requests.auth import HTTPBasicAuth
 from decimal import Decimal
-from django.shortcuts import get_object_or_404
 from .forms import ResourceForm
 
 
@@ -224,8 +223,29 @@ def upload_resources(request):
     
 
 def edit(request, id):
-    resources = Resource.objects.get(id=id)
-    return render(request, 'edit.html', {'x': resources})
+    resource = get_object_or_404(Resource, id=id)
+
+    if request.method == 'POST':
+        # Get the resource data from the form
+        title = request.POST['title']
+        document = request.FILES.get('document')
+
+        # Update the resource
+        resource.title = title
+        if document:
+            resource.document = document
+        resource.save()
+
+        # Redirect to resources page after update
+        return redirect('resources')
+
+    return render(request, 'edit.html', {'x': resource})
+
+def delete_resource(request, id):
+    resource = get_object_or_404(Resource, id=id)
+    resource.delete()
+    return redirect('resources')
+
 
         
     

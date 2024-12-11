@@ -1,11 +1,26 @@
 {% extends 'test.html' %}
 
-{% load static %} 
-
+{% load static %}
 
 {% block body %}
+<div class="container mt-5">
+    <h2 class="text-center text-white mb-4">Edit Resource</h2>
+    <form method="POST" enctype="multipart/form-data" class="p-4 rounded shadow-sm" style="max-width: 450px; border: 2px solid #fff; margin: 0 auto;">
+        {% csrf_token %}
+        <div class="form-group mb-4">
+            <label for="title" class="form-label" style="color: #fff;">Resource Title</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{ x.title }}" required style="color: black;">
+        </div>
+        <div class="form-group mb-4">
+            <label for="document" class="form-label" style="color: #fff;">Document</label>
+            <input type="file" class="form-control-file" id="document" name="document" style="color: black;">
+            <br><small class="form-text" style="color: #fff;">Leave empty if you don't want to change the document.</small>
+        </div>
+        <button type="submit" class="btn btn-primary  mt-3">Update</button>
+    </form>
 
-
-    
-{% endblock  %}
-    
+    <div class="text-center mt-3">
+        <a href="{% url 'resources' %}" class="text-white font-weight-bold">Back to Resources...</a>
+    </div>
+</div>
+{% endblock %}
