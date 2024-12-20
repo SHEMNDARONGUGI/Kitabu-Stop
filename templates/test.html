@@ -20,26 +20,34 @@
     <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 <!--
 
 
 
 -->
-<style>
-
-.equal-size {
-    width: 100%;
-    height: 200px; /* Set a specific height */
-    object-fit: cover; /* Ensures the image is cropped to fill the set dimensions */
+<script>
+    function toggleNav() {
+    const navLinks = document.getElementById('nav-links');
+    navLinks.classList.toggle('active'); // Toggle the 'active' class to show/hide nav links
 }
 
-  
+</script>
+<style>
+
+
 /* General reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
 }
 
 /* Navbar styling */
@@ -64,6 +72,8 @@
 .navbar-nav {
     display: flex;
     list-style-type: none;
+    flex-wrap: wrap; /* Allow the items to wrap on smaller screens */
+    justify-content: flex-end; /* Align items to the right */
 }
 
 .nav-item {
@@ -103,16 +113,25 @@
     .navbar-nav {
         text-align: center;
         width: 100%;
+        display: block; /* Stack the navbar items vertically */
     }
 
     .nav-item {
-        margin: 10px 0; /* Stack the navbar items */
+        margin: 10px 0; /* Stack the navbar items with space between them */
     }
 
     .navbar-collapse {
         background-color: #0C105A; /* Ensure the background color is consistent */
+        padding: 10px 0; /* Add padding around the collapsed navbar */
+    }
+
+    .navbar-toggler {
+        font-size: 28px; /* Make the toggler icon larger */
+        padding: 10px; /* Add padding around the toggler button */
     }
 }
+
+
 
 /* Footer styling */
 .footer {
@@ -267,49 +286,34 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
+    
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'index' %}">Home</a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'about' %}">About Us!</a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'working' %}">How it Works</a>
                 </li>
-
-
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'shop' %}">Book Shop</a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'resources' %}">Free Resources</a>
                 </li>
-                
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                 </li>
-
-                
-                </div>
-              
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                 </li>
-
-                <li>
-                    {{user.name}}
-                </li>
-              
-               
-                </ul>
+            </ul>
         </div>
     </nav>
+    
 
       
       
