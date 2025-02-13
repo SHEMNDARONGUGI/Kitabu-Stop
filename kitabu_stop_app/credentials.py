@@ -18,6 +18,22 @@ class MpesaAccessToken:
     mpesa_access_token = json.loads(r.text)
     validated_mpesa_access_token = mpesa_access_token["access_token"]
 
+# class MpesaAccessToken:
+#     r = requests.get(
+#         MpesaC2bCredential.api_URL,
+#         auth=HTTPBasicAuth(MpesaC2bCredential.consumer_key, MpesaC2bCredential.consumer_secret)
+#     )
+#     try:
+#         mpesa_access_token = json.loads(r.text)
+#         validated_mpesa_access_token = mpesa_access_token["access_token"]
+#     except json.JSONDecodeError:
+#         print("Failed to decode JSON. Response text:", r.text)
+#         mpesa_access_token = {}
+#         validated_mpesa_access_token = None
+#     except KeyError:
+#         print("Access token not found in response. Response JSON:", mpesa_access_token)
+#         validated_mpesa_access_token = None
+
 
 class LipanaMpesaPpassword:
     lipa_time = datetime.now().strftime('%Y%m%d%H%M%S')
