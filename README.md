@@ -19,7 +19,7 @@ Follow these steps to set up the project on your local machine:
 
 Ensure you have the following installed:
 
-- Python (3.8 or higher)
+- Python (3.0 or higher)
 - MySQL
 - Virtualenv (optional but recommended)
 
