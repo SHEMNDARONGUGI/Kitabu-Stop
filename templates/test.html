@@ -1,346 +1,351 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
   <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="{%static 'https://cdn-icons-png.flaticon.com/128/8446/8446848.png'%}" type="image/x-icon">
-    <title>Kitabu Stop</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
     {% load static %}
+    <link
+      rel="shortcut icon"
+      href="{%static 'https://cdn-icons-png.flaticon.com/128/8446/8446848.png'%}"
+      type="image/x-icon"
+    />
+    <title>Kitabu Stop</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{%static 'assets/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
-
+    <link
+      href="{%static 'assets/bootstrap/css/bootstrap.min.css'%}"
+      rel="stylesheet"
+    />
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/templatemo-scholar.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/css/templatemo-scholar.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
     <!-- Bootstrap CSS -->
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-<!-- Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<!--
+    <!--
 
 
 
 -->
-<script>
-    function toggleNav() {
-    const navLinks = document.getElementById('nav-links');
-    navLinks.classList.toggle('active'); // Toggle the 'active' class to show/hide nav links
-}
+    <script>
+      function toggleNav() {
+        const navLinks = document.getElementById("nav-links");
+        navLinks.classList.toggle("active"); // Toggle the 'active' class to show/hide nav links
+      }
+    </script>
+    <style>
+      /* General reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-</script>
-<style>
+      /* Navbar styling */
+      .navbar {
+        background-color: #0c105a; /* Set the navbar background color */
+        padding: 10px 20px; /* Add some padding */
+      }
 
+      /* Navbar brand (logo) */
+      .navbar-brand {
+        color: #f8f9fa; /* Light color for the brand text */
+        font-size: 24px; /* Set the font size for the logo */
+        font-weight: bold; /* Make the text bold */
+        text-decoration: none; /* Remove underline */
+      }
 
-/* General reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+      .navbar-brand:hover {
+        color: #f8f9fa; /* Keep the color on hover */
+      }
 
-/* Navbar styling */
-.navbar {
-    background-color: #0C105A; /* Set the navbar background color */
-    padding: 10px 20px; /* Add some padding */
-}
+      /* Navbar links */
+      .navbar-nav {
+        display: flex;
+        list-style-type: none;
+        flex-wrap: wrap; /* Allow the items to wrap on smaller screens */
+        justify-content: flex-end; /* Align items to the right */
+      }
 
-/* Navbar brand (logo) */
-.navbar-brand {
-    color: #f8f9fa; /* Light color for the brand text */
-    font-size: 24px; /* Set the font size for the logo */
-    font-weight: bold; /* Make the text bold */
-    text-decoration: none; /* Remove underline */
-}
+      .nav-item {
+        margin-left: 20px; /* Space out the items */
+      }
 
-.navbar-brand:hover {
-    color: #f8f9fa; /* Keep the color on hover */
-}
+      .nav-link {
+        color: #f8f9fa; /* Set the text color */
+        font-size: 16px; /* Set font size */
+        text-decoration: none; /* Remove underline */
+        padding: 5px 10px; /* Padding for clickable area */
+      }
 
-/* Navbar links */
-.navbar-nav {
-    display: flex;
-    list-style-type: none;
-    flex-wrap: wrap; /* Allow the items to wrap on smaller screens */
-    justify-content: flex-end; /* Align items to the right */
-}
+      .nav-link:hover {
+        color: #ffc107; /* Change color on hover */
+      }
 
-.nav-item {
-    margin-left: 20px; /* Space out the items */
-}
+      /* Toggle button for smaller screens */
+      .navbar-toggler {
+        border: none;
+        background-color: transparent;
+        padding: 0;
+        font-size: 24px;
+      }
 
-.nav-link {
-    color: #f8f9fa; /* Set the text color */
-    font-size: 16px; /* Set font size */
-    text-decoration: none; /* Remove underline */
-    padding: 5px 10px; /* Padding for clickable area */
-}
+      .navbar-toggler-icon {
+        background-color: #f8f9fa; /* Set icon color */
+      }
 
-.nav-link:hover {
-    color: #ffc107; /* Change color on hover */
-}
+      /* Align navbar items to the right */
+      .ml-auto {
+        margin-left: auto;
+      }
 
-/* Toggle button for smaller screens */
-.navbar-toggler {
-    border: none;
-    background-color: transparent;
-    padding: 0;
-    font-size: 24px;
-}
+      /* Mobile navbar adjustment */
+      @media (max-width: 768px) {
+        .navbar-nav {
+          text-align: center;
+          width: 100%;
+          display: block; /* Stack the navbar items vertically */
+        }
 
-.navbar-toggler-icon {
-    background-color: #f8f9fa; /* Set icon color */
-}
+        .nav-item {
+          margin: 10px 0; /* Stack the navbar items with space between them */
+        }
 
-/* Align navbar items to the right */
-.ml-auto {
-    margin-left: auto;
-}
+        .navbar-collapse {
+          background-color: #0c105a; /* Ensure the background color is consistent */
+          padding: 10px 0; /* Add padding around the collapsed navbar */
+        }
 
-/* Mobile navbar adjustment */
-@media (max-width: 768px) {
-    .navbar-nav {
+        .navbar-toggler {
+          font-size: 28px; /* Make the toggler icon larger */
+          padding: 10px; /* Add padding around the toggler button */
+        }
+      }
+
+      /* Footer styling */
+      .footer {
+        background-color: #0c105a;
+        color: #f8f9fa;
+        padding: 10px 20px;
         text-align: center;
+        position: relative;
+        bottom: 0;
         width: 100%;
-        display: block; /* Stack the navbar items vertically */
-    }
+        border-radius: 0; /* Ensure no curves or rounded corners */
+      }
 
-    .nav-item {
-        margin: 10px 0; /* Stack the navbar items with space between them */
-    }
+      .footer-content p {
+        margin-bottom: 2px; /* Adjust the margin to reduce space between lines */
+        font-size: 14px; /* Optional: Reduce font size for a thinner footer */
+      }
 
-    .navbar-collapse {
-        background-color: #0C105A; /* Ensure the background color is consistent */
-        padding: 10px 0; /* Add padding around the collapsed navbar */
-    }
+      /* Styling the social buttons */
+      .social-btn {
+        color: #0c105a;
+        font-size: 1.5rem;
+        border: 1px solid #0c105a;
+        border-radius: 50%;
+        padding: 10px;
+        margin: 5px;
+        transition:
+          background-color 0.3s,
+          color 0.3s;
+      }
 
-    .navbar-toggler {
-        font-size: 28px; /* Make the toggler icon larger */
-        padding: 10px; /* Add padding around the toggler button */
-    }
-}
+      .social-btn:hover {
+        background-color: #0c105a;
+        color: #fff;
+      }
 
+      /* Submit button */
+      .btn-primary {
+        background-color: #0c105a;
+        border: 2px solid #fff;
+        color: #fff;
+        font-size: 1rem;
+        padding: 12px 20px;
+        width: 100%;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
 
-
-/* Footer styling */
-.footer {
-    background-color: #0C105A;
-    color: #f8f9fa;
-    padding: 10px 20px; 
-    text-align: center;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    border-radius: 0; /* Ensure no curves or rounded corners */
-    
-}
-
-.footer-content p {
-    margin-bottom: 2px; /* Adjust the margin to reduce space between lines */
-    font-size: 14px; /* Optional: Reduce font size for a thinner footer */
-}
-
-
-
-
-        /* Styling the social buttons */
-        .social-btn {
-            color: #0C105A;
-            font-size: 1.5rem;
-            border: 1px solid #0C105A;
-            border-radius: 50%;
-            padding: 10px;
-            margin: 5px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .social-btn:hover {
-            background-color: #0C105A;
-            color: #fff;
-        }
-
-
-        /* Submit button */
-        .btn-primary {
-            background-color: #0C105A;
-            border: 2px solid #fff;
-            color: #fff;
-            font-size: 1rem;
-            padding: 12px 20px;
-            width: 100%;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-
-        }
-
-        .btn-primary:hover {
-            background-color: #ffc107;
-            color: black;
-        } */
+      .btn-primary:hover {
+        background-color: #ffc107;
+        color: black;
+      }
+      */
 
         /* Responsive Design */
         @media (max-width: 576px) {
-            .registration-form {
-                padding: 15px;
-            }
+        .registration-form {
+          padding: 15px;
         }
+      }
 
-        /*working css*/
-        .intro {
-    background-color: #0C105A;
-    color: #fff;
-    padding: 40px;
-    text-align: center;
-}
+      /*working css*/
+      .intro {
+        background-color: #0c105a;
+        color: #fff;
+        padding: 40px;
+        text-align: center;
+      }
 
-.intro h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-}
+      .intro h1 {
+        font-size: 36px;
+        margin-bottom: 10px;
+      }
 
-.intro p {
-    font-size: 18px;
-}
+      .intro p {
+        font-size: 18px;
+      }
 
-/* Step Section */
-.steps {
-    display: flex;
-    justify-content: space-around;
-    margin: 40px 0;
-}
+      /* Step Section */
+      .steps {
+        display: flex;
+        justify-content: space-around;
+        margin: 40px 0;
+      }
 
-.step {
-    background-color: #f4f4f4;
-    width: 30%;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+      .step {
+        background-color: #f4f4f4;
+        width: 30%;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
 
-.step-number {
-    background-color: #0C105A;
-    color: #fff;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    line-height: 40px;
-    font-size: 20px;
-    margin-bottom: 20px;
-}
+      .step-number {
+        background-color: #0c105a;
+        color: #fff;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
 
-.step-description h2 {
-    font-size: 24px;
-    color: #0C105A;
-    margin-bottom: 10px;
-}
+      .step-description h2 {
+        font-size: 24px;
+        color: #0c105a;
+        margin-bottom: 10px;
+      }
 
-.step-description p {
-    font-size: 16px;
-}
+      .step-description p {
+        font-size: 16px;
+      }
 
-/* Ensure the .thumb container has relative positioning to position the price absolutely */
-.thumb {
-    position: relative; /* Position for the price */
-}
+      /* Ensure the .thumb container has relative positioning to position the price absolutely */
+      .thumb {
+        position: relative; /* Position for the price */
+      }
 
-/* Price style */
-.price1 {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #0C105A;
-    color: white;
-    padding: 5px 15px;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-}
+      /* Price style */
+      .price1 {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #0c105a;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+      }
 
-/* Uniform image size */
-.product-image {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-</style>
+      /* Uniform image size */
+      .product-image {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+    </style>
   </head>
 
-<body style="background-color: #0C105A;">
-
+  <body style="background-color: #0c105a">
     <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="{% url 'index' %}">Kitabu Stop</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'index' %}">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'about' %}">About Us!</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'working' %}">How it Works</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'shop' %}">Book Shop</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'resources' %}">Free Resources</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-                </li>
-            </ul>
-        </div>
+      <a class="navbar-brand" href="{% url 'index' %}">Kitabu Stop</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">About Us!</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'working' %}">How it Works</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'shop' %}">Book Shop</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'resources' %}">Free Resources</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </li>
+        </ul>
+      </div>
     </nav>
-    
 
-      
-      
-      
-      {% block body %}
-        
-      {% endblock  %}
-        
-      <!-- Footer -->
-<footer class="footer" >
-    <div>
-        <p style="color: #fff;">&copy; 2024 Kitabu Stop. All rights reserved.</p>
-       
-    </div>
+    {% block body %} {% endblock %}
 
+    <!-- Footer -->
+    <footer class="footer">
+      <div>
+        <p style="color: #fff">&copy; 2024 Kitabu Stop. All rights reserved.</p>
+      </div>
+    </footer>
 
-</footer>
-
-  <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
-  <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
-  <script src="{% static 'assets/js/isotope.min.js' %}"></script>
-  <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
-  <script src="{% static 'assets/js/counter.js' %}"></script>
-  <script src="{% static 'assets/js/custom.js' %}"></script>
-
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/isotope.min.js' %}"></script>
+    <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+    <script src="{% static 'assets/js/counter.js' %}"></script>
+    <script src="{% static 'assets/js/custom.js' %}"></script>
   </body>
 </html>
-
-
