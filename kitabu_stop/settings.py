@@ -78,8 +78,8 @@ DATABASES = {
         "HOST": os.environ["DB_HOST"],
         "PORT": os.environ["DB_PORT"],
         "OPTIONS": {
-           "ssl_mode": "REQUIRED"
-        },
+    "ssl": {},
+},
     }
 }
 
